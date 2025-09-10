@@ -1,0 +1,7 @@
+[0m[1m[38;5;9merror[0m[0m[1m: expected `where`, `{`, `(`, or `;` after struct name, found
+keyword `fn`[0m
+[0m  [0m[0m[1m[38;5;12m--> [0m[0mexamples/point_frame_mismatch.rs:22:1[0m
+[0m   [0m[0m[1m[38;5;12m|[0m
+[0m[1m[38;5;12m21[0m[0m [0m[0m[1m[38;5;12m|[0m[0m [0m[0mstruct Robot[0m
+[0m[1m[38;5;12m22[0m[0m [0m[0m[1m[38;5;12m|[0m[0m [0m[0mfn walk_to_point(target: Point2<Robot>) {[0m
+[0m   [0m[0m[1m[38;5;12m|[0m[0m [0m[0m[1m[38;5;9m^^[0m[0m [0m[0m[1m[38;5;9mexpected `where`, `{`, `(`, or `;` after struct name[0m
