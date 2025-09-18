@@ -1,0 +1,36 @@
+name: Compile document
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - latest
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v3
+      - name: Compile slides
+        run: typst compile slides.typ --font-path .fonts
+      - name: Set latest tag
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: rickstaa/action-create-tag@v1
+        with:
+          tag: latest
+          force_push_tag: true
+      - uses: softprops/action-gh-release@v2
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          files: |
+            slides.pdf
+          tag_name: latest
+      - uses: softprops/action-gh-release@v2
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          files: |
+            slides.pdf
+          tag_name: ${{ github.ref_name }}
+          make_latest: false
