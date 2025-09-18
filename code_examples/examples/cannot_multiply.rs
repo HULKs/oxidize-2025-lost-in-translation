@@ -19,11 +19,11 @@ impl<From, To> Mul<Point2<From>> for Isometry2<From, To> {
 }
 
 struct Robot;
-struct Field;
+struct World;
 
 fn main() {
-    let ball: Point2<Field> = todo!();
-    let robot_to_field: Isometry2<Robot, Field> = todo!();
+    let ball: Point2<World> = todo!();
+    let robot_to_world: Isometry2<Robot, World> = todo!();
 
-    let ball_in_field = robot_to_field * ball;
+    let ball_in_world = robot_to_world * ball;
 }
